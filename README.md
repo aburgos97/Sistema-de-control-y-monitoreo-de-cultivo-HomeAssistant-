@@ -7,6 +7,10 @@ Guía práctica, de bajo costo y sin necesidad de programar, para montar un sist
 - Presupuesto bajo y componentes fáciles de conseguir.
 - Recetas listas: Pulse (REST), BlueLab Guardian WiFi (integración comunitaria), ESP32 (humedad de suelo por MQTT), Broadlink RM4 Pro, Tuya (enchufes).
 
+**Que integramos?**
+
+En esta guia, vamos a integrar sensores que utilizamos en nuestra sala de cultivo aprobada por Reprocann. Estos sensores tienen distintos tipo de integraciones y funcionan perfectamente con el sistema. La flexibilidad de este software de codigo abierto nos permite no tener que casarnos con una marca de sensores o dispositivos ya que si el sensor tiene conectividad wifi, bluetooh, MQTT y otras conexiones, podemos integrarlo al sistema.
+
 ## Índice
 1. [Instalación HAOS](docs/01_instalacion_haos_raspberry.md)
 2. [Add-ons básicos](docs/02_addons_basicos.md)
