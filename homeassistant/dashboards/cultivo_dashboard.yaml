@@ -1,0 +1,39 @@
+title: Cultivo
+views:
+  - title: Resumen
+    path: resumen
+    icon: mdi:leaf
+    cards:
+      - type: entities
+        title: Ambiente
+        entities:
+          - entity: sensor.pulsepro_temp
+            name: Temperatura
+          - entity: sensor.pulsepro_humidity
+            name: Humedad
+          - entity: sensor.pulsepro_vpd
+            name: VPD
+          - entity: sensor.pulsepro_co2
+            name: CO₂
+      - type: history-graph
+        hours_to_show: 24
+        title: 24h Ambiente
+        entities:
+          - sensor.pulsepro_temp
+          - sensor.pulsepro_humidity
+          - sensor.pulsepro_vpd
+      - type: gauge
+        entity: sensor.pulsepro_vpd
+        name: VPD
+        min: 0.3
+        max: 1.6
+      - type: entities
+        title: Suelo
+        entities:
+          - sensor.humedad_de_suelo_maceta_1
+      - type: entities
+        title: Control
+        entities:
+          - switch.enchufe_humidificador
+          - switch.enchufe_extractor
+          - switch.enchufe_luz

@@ -1,0 +1,20 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Python / Node (just in case)
+__pycache__/
+node_modules/
+
+# Home Assistant
+homeassistant/.storage/
+homeassistant/home-assistant_v2.db*
+homeassistant/.cloud/
+homeassistant/tts/
+homeassistant/.ios.conf
+homeassistant/.uuid
+homeassistant/known_devices.yaml
+homeassistant/secrets.yaml
+homeassistant/.HA_VERSION

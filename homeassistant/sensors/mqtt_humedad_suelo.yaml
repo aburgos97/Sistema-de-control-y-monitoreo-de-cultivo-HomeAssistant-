@@ -1,0 +1,10 @@
+# Sensor MQTT para humedad de suelo (publicado por tu ESP32)
+# Ejemplo de tópico: cultivo/suelo/1 -> payload "57.3" (porcentaje)
+
+- platform: mqtt
+  name: "Humedad de suelo - Maceta 1"
+  state_topic: "cultivo/suelo/1"
+  unit_of_measurement: "%"
+  device_class: humidity
+  value_template: "{{ value | float(0) | round(1) }}"
+  unique_id: "soil_1_percent"

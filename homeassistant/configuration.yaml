@@ -1,0 +1,27 @@
+homeassistant:
+  name: Cultivo
+
+# Sensores por carpeta
+sensor: !include_dir_merge_list sensors
+
+# Automatizaciones
+automation: !include automations.yaml
+
+# Lovelace en YAML
+lovelace:
+  mode: yaml
+  resources: []
+  dashboards:
+    cultivo:
+      mode: yaml
+      title: Cultivo
+      icon: mdi:leaf
+      show_in_sidebar: true
+      filename: dashboards/cultivo_dashboard.yaml
+
+# MQTT (usa Mosquitto add-on)
+mqtt:
+  discovery: true
+  discovery_prefix: homeassistant
+
+# Broadlink, Tuya y BlueLab: agregar desde la UI.

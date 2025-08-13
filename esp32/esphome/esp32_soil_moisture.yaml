@@ -1,0 +1,54 @@
+esphome:
+  name: esp32-soil-1
+
+esp32:
+  board: esp32dev
+
+wifi:
+  ssid: "TU_WIFI"
+  password: "TU_PASS"
+
+mqtt:
+  broker: !secret mqtt_broker
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
+  discovery: false
+
+logger:
+
+sensor:
+  - platform: adc
+    pin: GPIO34
+    name: "Soil Raw"
+    id: soil_raw
+    update_interval: 10s
+    attenuation: 11db
+    filters:
+      - sliding_window_moving_average:
+          window_size: 10
+          send_every: 1
+
+  - platform: template
+    name: "Soil Moisture %"
+    id: soil_pct
+    unit_of_measurement: "%"
+    update_interval: 10s
+    lambda: |-
+      // Ajusta calibración
+      const float dry = 3000.0;
+      const float wet = 1200.0;
+      float raw = id(soil_raw).state * 4095.0;  // si hace falta escalar
+      float pct = 100.0 * (dry - raw) / (dry - wet);
+      if (pct < 0) pct = 0;
+      if (pct > 100) pct = 100;
+      return pct;
+
+interval:
+  - interval: 10s
+    then:
+      - mqtt.publish:
+          topic: cultivo/suelo/1
+          payload: !lambda |-
+            char buf[16];
+            sprintf(buf, "%.1f", id(soil_pct).state);
+            return std::string(buf);

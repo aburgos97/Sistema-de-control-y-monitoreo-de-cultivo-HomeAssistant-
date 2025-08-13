@@ -1,0 +1,46 @@
+# Pulse - Sensores REST de ejemplo
+# Usa secrets.yaml para `pulse_api_key` y `pulse_resource`
+
+- platform: rest
+  name: PulsePro VPD
+  resource: !secret pulse_resource
+  method: GET
+  headers:
+    x-api-key: !secret pulse_api_key
+  value_template: "{{ value_json['vpd'] }}"
+  unit_of_measurement: "kPa"
+  unique_id: "pulsepro_vpd"
+  scan_interval: 20
+
+- platform: rest
+  name: PulsePro Temperatura
+  resource: !secret pulse_resource
+  method: GET
+  headers:
+    x-api-key: !secret pulse_api_key
+  value_template: "{{ value_json['temperature'] }}"
+  unit_of_measurement: "°C"
+  unique_id: "pulsepro_temp"
+  scan_interval: 20
+
+- platform: rest
+  name: PulsePro Humedad
+  resource: !secret pulse_resource
+  method: GET
+  headers:
+    x-api-key: !secret pulse_api_key
+  value_template: "{{ value_json['humidity'] }}"
+  unit_of_measurement: "%"
+  unique_id: "pulsepro_humidity"
+  scan_interval: 20
+
+- platform: rest
+  name: PulsePro CO2
+  resource: !secret pulse_resource
+  method: GET
+  headers:
+    x-api-key: !secret pulse_api_key
+  value_template: "{{ value_json['co2'] }}"
+  unit_of_measurement: "ppm"
+  unique_id: "pulsepro_co2"
+  scan_interval: 20

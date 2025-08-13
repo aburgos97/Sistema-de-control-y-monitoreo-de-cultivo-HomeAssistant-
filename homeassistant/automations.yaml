@@ -1,0 +1,42 @@
+# Automatizaciones de ejemplo
+
+- id: auto_humidificador_on
+  alias: Humidificador ON por humedad baja
+  mode: single
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.pulsepro_humidity
+      below: 55
+      for: "00:02:00"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.enchufe_humidificador
+
+- id: auto_humidificador_off
+  alias: Humidificador OFF por humedad recuperada
+  mode: single
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.pulsepro_humidity
+      above: 60
+      for: "00:02:00"
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.enchufe_humidificador
+
+- id: alerta_vpd_fuera_de_rango
+  alias: Alerta VPD fuera de rango
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.pulsepro_vpd
+      below: 0.8
+    - platform: numeric_state
+      entity_id: sensor.pulsepro_vpd
+      above: 1.2
+  action:
+    - service: persistent_notification.create
+      data:
+        title: "VPD fuera de rango"
+        message: "Revisa humidificador/deshumidificador/ventilación."
