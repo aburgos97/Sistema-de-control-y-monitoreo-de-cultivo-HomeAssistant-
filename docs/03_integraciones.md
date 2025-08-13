@@ -1,9 +1,14 @@
 # Integraciones
 
+## HACS (HomeAssistant Community Store)
+
+HACS es la tienda de integraciones que la comunidad produce para que podamos aprovechar. Aqui encontraremos herramientas que nos serviran para integrar distintos dispositivos, conectarnos, y hasta embellecer nuestro dashboard.
+
 ## BlueLab Guardian WiFi
 Usaremos la integración comunitaria de BlueLab Guardian WiFi mantenida por la comunidad. Recomendado instalarla vía **HACS** (Home Assistant Community Store).
 - En HACS → Integrations → “+” → busca “BlueLab” o agrega el repositorio manualmente.
-- Reinicia Home Assistant y agrega la integración desde **Configuración → Dispositivos y servicios**.
+- Reinicia Home Assistant y agrega la integración desde **Configuración → Dispositivos y servicios**
+- Para la integracion necesitaras el "DEVICE ID" y la "API KEY" que podras verlo en la aplicacion "EDENIC" de BlueLab.
 - Se crearán entidades para pH, EC, T°, etc., según tu dispositivo.
 
 **Crédito del proyecto:** ver `docs/09_creditos.md`.
@@ -32,8 +37,9 @@ Usos típicos: aire acondicionado (IR), humidificador/deshumidificador (IR o enc
 ## Tuya (enchufes inteligentes)
 Integración oficial Tuya:
 1. Crea cuenta Tuya IoT y vincula la app (Smart Life/Tuya).
-2. Agrega la integración Tuya en Home Assistant.
-3. Maneja ON/OFF de equipos como humidificador/extractor.
+2. Vincula tus dispositivos a la app.
+3. Agrega la integración Tuya en Home Assistant.
+4. Maneja ON/OFF de equipos como humidificador/extractor.
 
 ---
 
