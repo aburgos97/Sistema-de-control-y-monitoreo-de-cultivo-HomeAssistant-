@@ -1,0 +1,18 @@
+**Sensor de humedad de suelo con ESP32 (hardware)**
+
+**Componentes**
+- ESP32 (placa dev tipo esp32dev).
+- Sensor capacitivo de humedad de suelo (versión analógica).
+- Cables Dupont (hembra-hembra o hembra-macho según tu placa).
+
+**Esquema de conexión (cableado)**
+
+El sensor capacitivo tiene tres pines: VCC, GND, AO (Analog Output).
+Conectá así:
+VCC (sensor) → 3V3 (ESP32)
+Suministrá 3.3 V para que la salida analógica nunca supere el máximo del ADC de la ESP32.
+GND (sensor) → GND (ESP32)
+AO (sensor) → GPIO34 (ESP32)
+
+GPIO34 es una entrada analógica del ADC1 (recomendada; no uses pines del ADC2 cuando el Wi-Fi está activo).
+
