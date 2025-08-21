@@ -1,8 +1,0 @@
-{
-  "title": "Cultivo - Ambiente",
-  "panels": [
-    { "type": "graph", "title": "Temperatura" },
-    { "type": "graph", "title": "Humedad" },
-    { "type": "graph", "title": "VPD" }
-  ]
-}
