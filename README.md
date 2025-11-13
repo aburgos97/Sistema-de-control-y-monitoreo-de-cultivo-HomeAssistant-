@@ -21,5 +21,3 @@ En esta guia, vamos a integrar sensores que utilizamos en nuestra sala de cultiv
 7. [Troubleshooting](docs/07_troubleshooting.md)
 8. [Privacidad y secrets](docs/08_privacidad_y_secrets.md)
 9. [Créditos](docs/09_creditos.md)
-
-> **Privacidad:** No incluyas IPs reales ni claves en el repo. Usa `secrets.yaml` como se muestra en `homeassistant/secrets.example.yaml`.
